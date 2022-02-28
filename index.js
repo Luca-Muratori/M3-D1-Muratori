@@ -3,31 +3,73 @@
 1)
 Create a function to calculate the sum of the two given integers. If the two values are same, then returns triple their sum.
 */
+const sum1=function(a, b){
+    if(a===b){
+        return ((a+b)*3)
+    } else{
+        return a+b
+    }
+}
+console.log(sum1(1, 1))
+console.log(sum1(1,2))
 
 /*
 2)
 Create a function to check two given numbers and return true if one of the number is 50 or if their sum is 50.
 */
+const checkNumber=function(a, b){
+    if(a===50||b===50||a+b===50){
+        return true
+    } else{
+        return false
+    }
+}
+console.log(checkNumber(1, 50))
+console.log(checkNumber(1, 1))
+console.log(checkNumber(25, 25))
 
 /*
 3)
 Create a function to remove a character at the specified position of a given string and return the new string.
 */
 
+const removeCharacter = function(string, position){
+    let arr=[...string]
+    arr.splice(position, 1)
+    let newArr=arr.join('')
+    return newArr
+}
+console.log(removeCharacter('Strive', 2))
 /*
 
 4)
  Create a function to find the largest of three given integers.
 */
+const maxOfThree=function(a, b, c){
+    let max=Math.max(a,b, c);
+    return max
+}
+
+console.log(maxOfThree(10, 23, 1))
 
 /*
 5)
 Create a function to check whether two numbers are in range 40..60 or in the range 70..100 inclusive.
 */
+const checkTheRange=function(a, b){
+    if(a>40 && a<60 || a>70 && a<100 ){
+        return `${a} is between 40-60 or 70-100`
+    } else if (b>40 && b<60 || b>70 && b<100 ){
+        return `${b} is between 40-60 or 70-100`
+    } else {
+        "the given integers aren't between 40-60 or 70-100"
+    }
+    return
+}
+console.log(checkTheRange(20,50))
 
 /*
 6) 
-
 Create a function to create a new string of specified copies (positive number) of a given string.
 */
 
