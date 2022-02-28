@@ -203,19 +203,72 @@ console.log(findTheIndex([221, 41, 4]));
 
 14)
 
-Create a function to get the largest even number from an array of integers.
+Create a function to get the largest even number from an array of integers.*/
+const findTheGreatestEven = function (arr) {
+  arr.sort((x, y) => y - x);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      return arr[i];
+    }
+  }
+};
+console.log(findTheGreatestEven([1, 2, 4, 5]));
+/*
 
 16)
 
-Create a function to check from two given integers, whether one is positive and another one is negative.
-
+Create a function to check from two given integers, whether one is positive and another one is negative.*/
+const checkPositiveOrNegative = function (a, b) {
+  if (a > 0 && b < 0) {
+    return a + " is positive and " + b + " is negative";
+  } else if (a < 0 && b > 0) {
+    return a + " is negative and " + b + " is positive";
+  } else if (a < 0 && b < 0) {
+    return a + " and " + b + " are negative";
+  } else if (a > 0 && b > 0) {
+    return a + " and " + b + " are positive";
+  }
+};
+console.log(checkPositiveOrNegative(1, -2));
+console.log(checkPositiveOrNegative(-1, -2));
+console.log(checkPositiveOrNegative(1, 2));
+console.log(checkPositiveOrNegative(-1, 2));
+/*
 17)
 
-Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case. 
+Create a function to create new string with first 3 characters are in lower case and the others in upper case.
+ If the string length is less than 3 convert all the characters in upper case. */
+
+const convertInUpperCase = function (string) {
+  {
+    if (string.length < 3) {
+      return string.toUpperCase();
+    }
+    front_part = string.substring(0, 3).toUpperCase();
+    back_part = string.substring(3, string.length);
+    return front_part + back_part;
+  }
+};
+console.log(convertInUpperCase("hello"));
+
+/*
 
 18)
 
-Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.*/
+const calculateTheSum = function (a, b) {
+  if (a + b >= 50 && a + b <= 80) {
+    return 65;
+  } else {
+    return 80;
+  }
+};
+
+console.log(calculateTheSum(5, 48));
+console.log(calculateTheSum(78, 1));
+console.log(calculateTheSum(78, 45));
+
+/*
 
 19)
 
@@ -231,9 +284,42 @@ this would be a simple "Stefano".
 30's factors are 1, 2, 3, 5, 6, 10, 15, 30.
 this would be a "DiegoRiccardo".
 34 has four factors: 1, 2, 17, and 34.
-this would be "34".
+this would be "34".*/
+const convertNumberToString = function (num) {
+  return num % 3 === 0 && num % 5 !== 0 && num % 7 !== 0
+    ? "Diego"
+    : num % 5 === 0 && num % 3 !== 0 && num % 7 !== 0
+    ? "Riccardo"
+    : num % 7 === 0 && num % 3 !== 0 && num % 5 !== 0
+    ? "Stefano"
+    : num % 3 === 0 && num % 5 === 0 && num % 7 !== 0
+    ? "DiegoRiccardo"
+    : num % 5 === 0 && num % 7 === 0 && num % 3 !== 0
+    ? "RiccardoStefano"
+    : num % 7 === 0 && num % 3 === 0 && num % 5 !== 0
+    ? "StefanoDiego"
+    : num % 7 === 0 && num % 5 === 0 && num % 3 === 0
+    ? "StefanoDiegoRiccardo"
+    : num;
+};
+console.log(convertNumberToString(15));
+/*
 
 20)
 Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
 
 */
+const acronymGenerator = function (string) {
+  //create an empty array
+  let newStrArr = [];
+  //split the string, dividing every word in element of array=> [ 'British', 'broadcasting', 'Corporation' ]
+  let splitted = str.split(" ");
+  //for each word we take the first letter of every word, make them upper case, and putting in the newStrArr
+  for (let i = 0; i < splitted.length; i++) {
+    const letter = splitted[i];
+    newStrArr.push(letter.charAt(0).toUpperCase()); //newStrArr=['B', 'B', 'C']
+  }
+  //finally we join all the array element, to create a string with just the acronym
+  return newStrArr.join("");
+};
+console.log(acronymGenerator("British broadcasting Corporation"));
